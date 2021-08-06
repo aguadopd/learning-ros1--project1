@@ -15,7 +15,7 @@ At least:
   - We should get acquainted with ROS packaging system.
 2. Practice usage of ROS tools and files. Everything from `rqt_gui` to `rosdep` and `CMakeLists.txt`.
 3. Write our very own launch files to launch a lot of nodes or even other launch files.
-4. Write some nodes that do stuff.
+4. Write some nodes that do stuff, probably with Python.
 5. Use Gazebo and maybe modify some scenario.
 5. Practice `git`. Probably try adding submodules.
 
@@ -36,13 +36,23 @@ it to do some tasks inside that world.
   and we could use that for something else.
 
 
+
 ### Roadmap
 
 A coarse roadmap. Maybe just a checklist.
 
-- [ ] Better define the outline of the project. Should we use the house world or the racetrack? What to do inside?
-- [ ] Define if we go with classical CV or some NN based approach. It may depend on the objectives of the robot. Perhaps
+- [X] Better define the outline of the project. Should we use the house world or the racetrack? What to do inside?
+  - Use house world
+  - Place different objects around the use.
+  - Give the robot a list of things to detect around the house.
+	- There might be objects that the robot shouldn’t care about.
+	- The robot should somehow inform the position where each object of interest was found.
+- [X] Define if we go with classical CV or some NN based approach. It may depend on the objectives of the robot. Perhaps
       a mix.
+  - We decided to use the [Darknet ROS](https://github.com/leggedrobotics/darknet_ros) that uses the Darknet implementation of YOLO detection and classification networks.
+- [ ] Create the base structure of folders. According to [this question](https://answers.ros.org/question/257855/git-strategy-for-catkin-and-package-folders/) our repo should be a folder that later can be put inside the `src` folder of some workspace.
+  - [Darknet ROS](https://github.com/leggedrobotics/darknet_ros) and [Turtlebot3 simulations](https://github.com/ROBOTIS-GIT/turtlebot3_simulations) will be submodules as we might want to modify them
+
 
 ### Questions and answers
 
