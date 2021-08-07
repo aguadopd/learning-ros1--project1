@@ -5,6 +5,66 @@ A project for learning ROS 1, doing some fun and not so challenging project.
 - Pablo Aguado (https://github.com/aguadopd)
 - Nicolás Pereyra (https://github.com/Ednip7)
 
+
+## Description
+
+We simulate a Waffle Turtlebot 3 mobile robot inside a messy house. The robot will spawn in some arbitrary point and move around the house looking for some specific objects, informing their location. It uses the simulated camera feed to detect and recognize objects. The simulation ends when the robot has found all the required objects.
+
+
+### STATUS
+
+- *We simulate a Waffle Turtlebot 3 mobile robot inside a messy house.*
+    - Not yet messy.
+- *The robot will spawn in some arbitrary point and move around the house;*
+    - No
+- *looking for some specific objects;*
+    - No.
+- *informing their location.*
+    - No.
+- *It uses the simulated camera feed to detect and recognize objects.*
+    - WIP.
+- *The simulation ends when the robot has found all the required objects.*
+    - No.
+
+
+## Installation
+
+*TODO*
+
+
+## Usage
+
+Just a manual launch for now.
+
+1. In one terminal, start the Gazebo house simulation. **Should use it with the Waffle model, [as the Burger robot has no camera](https://emanual.robotis.com/docs/en/platform/turtlebot3/features/#specifications)**.
+
+```bash
+export TURTLEBOT3_MODEL=waffle
+roslaunch turtlebot3_gazebo turtlebot3_house.launch
+```
+
+2. In another terminal, launch the Darknet detection and classification node.
+- Here we are passing an `image` option, to suscribe to the rgb image topic published by the Turtlebot3 simulator. This should open a new window with the detections.
+- We are using the default launch file, that uses a Tiny YOLO v2 network that is automatically downloaded for testing while building the package. [This is trained on the COCO dataset, so should detect 80 different classes](https://github.com/leggedrobotics/darknet_ros).
+
+```bash
+roslaunch darknet_ros darknet_ros.launch image:=/camera/rgb/image_raw
+```
+
+3. Navigate manually launching a teleoperation node:
+
+```bash
+roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
+```
+
+4. You might want to add some recognizable objects inside the world.
+
+
+
+------------------------------------------------
+------------------------------------------------
+
+
 ## Meta
 
 ### Goals
@@ -37,7 +97,7 @@ it to do some tasks inside that world.
 
 
 
-### Roadmap
+### Roadmap, notes and etc
 
 A coarse roadmap. Maybe just a checklist.
 
@@ -50,8 +110,12 @@ A coarse roadmap. Maybe just a checklist.
 - [X] Define if we go with classical CV or some NN based approach. It may depend on the objectives of the robot. Perhaps
       a mix.
   - We decided to use the [Darknet ROS](https://github.com/leggedrobotics/darknet_ros) that uses the Darknet implementation of YOLO detection and classification networks.
-- [ ] Create the base structure of folders. According to [this question](https://answers.ros.org/question/257855/git-strategy-for-catkin-and-package-folders/) our repo should be a folder that later can be put inside the `src` folder of some workspace.
+- [X] Create the base structure of folders. According to [this question](https://answers.ros.org/question/257855/git-strategy-for-catkin-and-package-folders/) our repo should be a folder that later can be put inside the `src` folder of some workspace.
   - [Darknet ROS](https://github.com/leggedrobotics/darknet_ros) and [Turtlebot3 simulations](https://github.com/ROBOTIS-GIT/turtlebot3_simulations) will be submodules as we might want to modify them
+- [X] Check if everything if we can use DarknetROS alongside the Turtlebot3 simulation.
+- [ ] Try using a tiny YOLO model (v4) for better performance.
+  - Models found in https://github.com/AlexeyAB/darknet#pre-trained-models
+- [ ] Waffle model is discontinued so maybe we should use Waffle Pi. Test if it works in the simulations.
 
 
 ### Questions and answers
