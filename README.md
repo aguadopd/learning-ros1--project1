@@ -39,7 +39,7 @@ Just a manual launch for now.
 1. In one terminal, start the Gazebo house simulation. **Should use it with the Waffle model, [as the Burger robot has no camera](https://emanual.robotis.com/docs/en/platform/turtlebot3/features/#specifications)**.
 
 ```bash
-export TURTLEBOT3_MODEL=waffle
+export TURTLEBOT3_MODEL=waffle_pi
 roslaunch turtlebot3_gazebo turtlebot3_house.launch
 ```
 
@@ -113,9 +113,9 @@ A coarse roadmap. Maybe just a checklist.
 - [X] Create the base structure of folders. According to [this question](https://answers.ros.org/question/257855/git-strategy-for-catkin-and-package-folders/) our repo should be a folder that later can be put inside the `src` folder of some workspace.
   - [Darknet ROS](https://github.com/leggedrobotics/darknet_ros) and [Turtlebot3 simulations](https://github.com/ROBOTIS-GIT/turtlebot3_simulations) will be submodules as we might want to modify them
 - [X] Check if everything if we can use DarknetROS alongside the Turtlebot3 simulation.
-- [ ] Try using a tiny YOLO model (v4) for better performance.
+- [ ] Try using a tiny YOLO model (v4) for better performance. (#4)
   - Models found in https://github.com/AlexeyAB/darknet#pre-trained-models
-- [ ] Waffle model is discontinued so maybe we should use Waffle Pi. Test if it works in the simulations.
+- [X] Waffle model is discontinued so maybe we should use Waffle Pi. Test if it works in the simulations. (#3)
 
 
 ### Questions and answers
