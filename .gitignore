@@ -122,3 +122,6 @@ CATKIN_IGNORE
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/ros,visualstudiocode,emacs
+darknet_ros/darknet_ros/config/yolov4-tiny.yaml
+darknet_ros/darknet_ros/yolo_network_config/cfg/yolov4-tiny.cfg
+darknet_ros/darknet_ros/launch/yolo_v4_tiny.launch
