@@ -17,9 +17,13 @@ def seeker_listener():
     rospy.spin()
     
 if __name__ == '__main__':
+    rospy.loginfo("Starting seeker_listener.")  # Not printed in the console... why???
+    print("Waiting for bounding_boxes messages to be published...")
     try:
         while not rospy.is_shutdown():
             seeker_listener()
     except rospy.ROSInterruptException:
         pass
+    finally:
+        rospy.loginfo('Closing...')
 
