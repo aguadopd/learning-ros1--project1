@@ -14,7 +14,7 @@ We simulate a Waffle Turtlebot 3 mobile robot inside a messy house. The robot wi
 ### STATUS
 
 - *We simulate a Waffle Turtlebot 3 mobile robot inside a messy house.*
-    - Not yet messy.
+    - OK. Could have a larger variety of objects.
 - *The robot will spawn in some arbitrary point and move around the house;*
     - No
 - *looking for some specific objects;*
@@ -40,7 +40,7 @@ Just a manual launch for now.
 
 ```bash
 export TURTLEBOT3_MODEL=waffle_pi
-roslaunch turtlebot3_gazebo turtlebot3_house.launch
+roslaunch turtlebot3_gazebo turtlebot3_house_custom.launch
 ```
 
 2. In another terminal, launch the Darknet detection and classification node.
@@ -56,9 +56,6 @@ roslaunch darknet_ros darknet_ros.launch image:=/camera/rgb/image_raw
 ```bash
 roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 ```
-
-4. You might want to add some recognizable objects inside the world.
-
 
 
 ------------------------------------------------
@@ -116,6 +113,8 @@ A coarse roadmap. Maybe just a checklist.
 - [ ] Try using a tiny YOLO model (v4) for better performance. (#4)
   - Models found in https://github.com/AlexeyAB/darknet#pre-trained-models
 - [X] Waffle model is discontinued so maybe we should use Waffle Pi. Test if it works in the simulations. (#3)
+
+MOVED TO GITHUB ISSUES
 
 
 ### Questions and answers
