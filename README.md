@@ -57,7 +57,11 @@ roslaunch darknet_ros darknet_ros.launch image:=/camera/rgb/image_raw
 roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 ```
 
+4. In another terminal, run seeker_listener script to filter objects of interest.
 
+```bash
+rosrun pruebas seeker_listener.py
+```
 ------------------------------------------------
 ------------------------------------------------
 
